@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saúde Mental</title>
+
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* CORES */
+:root{
+  --azul:#4a90e2;
+  --verde:#50c878;
+  --amarelo:#f1c40f;
+  --fundo:#f4f8fb;
+  --escuro:#2c3e50;
+}
+
+/* BODY */
+body{
+  background:var(--fundo);
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--azul),var(--verde));
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+  animation:fadeDown 1s ease;
+}
+
+header h1{
+  font-size:2.4rem;
+}
+
+header p{
+  margin-top:10px;
+}
+
+/* MENU */
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:var(--escuro);
+}
+
+nav button{
+  background:none;
+  border:none;
+  color:white;
+  padding:15px 20px;
+  cursor:pointer;
+  transition:.3s;
+  font-size:15px;
+}
+
+nav button:hover{
+  background:var(--azul);
+}
+
+/* SEÇÕES */
+section{
+  display:none;
+  max-width:950px;
+  margin:auto;
+  padding:40px 20px;
+  animation:fade .6s ease;
+}
+
+section.active{
+  display:block;
+}
+
+h2{
+  color:var(--azul);
+  margin-bottom:20px;
+}
+
+p{
+  line-height:1.7;
+  margin-bottom:15px;
+}
+
+/* CARDS */
+.card{
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  margin:18px 0;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  border-left:6px solid var(--verde);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* BLOCO AJUDA */
+.help{
+  background:var(--amarelo);
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  margin-top:20px;
+  animation:pulse 2s infinite;
+}
+
+/* QUIZ */
+.question{
+  margin-bottom:25px;
+}
+
+.question h3{
+  margin-bottom:12px;
+  font-size:1rem;
+  color:#222;
+}
+
+label{
+  display:block;
+  margin:8px 0;
+  cursor:pointer;
+}
+
+input[type="radio"]{
+  margin-right:8px;
+}
+
+.quiz-btn{
+  background:linear-gradient(135deg,var(--azul),var(--verde));
+  color:white;
+  border:none;
+  padding:14px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+  transition:.3s;
+}
+
+.quiz-btn:hover{
+  transform:scale(1.03);
+}
+
+.resultado{
+  margin-top:25px;
+  padding:20px;
+  border-radius:12px;
+  background:white;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  display:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:var(--escuro);
+  color:white;
+  margin-top:40px;
+}
+
+/* ANIMAÇÕES */
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+@keyframes fadeDown{
+  from{
+    opacity:0;
+    transform:translateY(-20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.03);}
+  100%{transform:scale(1);}
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  nav{
+    flex-direction:column;
+  }
+
+  nav button{
+    width:100%;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  header h1{
+    font-size:2rem;
+  }
+
+  section{
+    padding:25px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Saúde Mental</h1>
+  <p>Cuidar da mente é essencial para viver bem</p>
+</header>
+
+<nav>
+  <button onclick="showSection('home')">Início</button>
+  <button onclick="showSection('info')">O que é</button>
+  <button onclick="showSection('sinais')">Sinais</button>
+  <button onclick="showSection('dicas')">Dicas</button>
+  <button onclick="showSection('quiz')">Questionário</button>
+  <button onclick="showSection('ajuda')">Ajuda</button>
+</nav>
+
+<!-- INICIO -->
+<section id="home" class="active">
+  <h2>Bem-vindo</h2>
+  <p>
+    A saúde mental é essencial para o equilíbrio da vida. Este site foi criado
+    para ajudar você a entender, cuidar e buscar apoio quando necessário.
+  </p>
+</section>
+
+<!-- O QUE É -->
+<section id="info">
+  <h2>O que é Saúde Mental</h2>
+
+  <div class="card">
+    <p>
+      Refere-se ao equilíbrio emocional, psicológico e social, influenciando
+      como pensamos, sentimos e agimos diante das experiências da vida.
+    </p>
+  </div>
+</section>
+
+<!-- SINAIS -->
+<section id="sinais">
+  <h2>Sinais de Alerta</h2>
+
+  <div class="card">
+    <p>• Ansiedade constante</p>
+    <p>• Falta de energia</p>
+    <p>• Isolamento social</p>
+    <p>• Dificuldade de concentração</p>
+  </div>
+</section>
+
+<!-- DICAS -->
+<section id="dicas">
+  <h2>Dicas de Bem-Estar</h2>
+
+  <div class="card">
+    <p>• Durma bem</p>
+    <p>• Pratique exercícios</p>
+    <p>• Evite excesso de redes sociais</p>
+    <p>• Converse com alguém de confiança</p>
+  </div>
+</section>
+
+<!-- QUESTIONÁRIO -->
+<section id="quiz">
+  <h2>Questionário de Bem-Estar Emocional</h2>
+
+  <div class="card">
+    <p>
+      Responda com sinceridade como você tem se sentido nos últimos dias.
+      Este questionário é apenas informativo e não substitui avaliação profissional.
+    </p>
+
+    <div class="question">
+      <h3>1. Como está seu nível de energia no dia a dia?</h3>
+      <label><input type="radio" name="q1" value="0"> Bom</label>
+      <label><input type="radio" name="q1" value="1"> Médio</label>
+      <label><input type="radio" name="q1" value="2"> Baixo</label>
+    </div>
+
+    <div class="question">
+      <h3>2. Como está sua qualidade de sono?</h3>
+      <label><input type="radio" name="q2" value="0"> Boa</label>
+      <label><input type="radio" name="q2" value="1"> Irregular</label>
+      <label><input type="radio" name="q2" value="2"> Ruim</label>
+    </div>
+
+    <div class="question">
+      <h3>3. Você sente preocupação excessiva ou ansiedade?</h3>
+      <label><input type="radio" name="q3" value="0"> Raramente</label>
+      <label><input type="radio" name="q3" value="1"> Às vezes</label>
+      <label><input type="radio" name="q3" value="2"> Frequentemente</label>
+    </div>
+
+    <div class="question">
+      <h3>4. Como está sua motivação para tarefas diárias?</h3>
+      <label><input type="radio" name="q4" value="0"> Boa</label>
+      <label><input type="radio" name="q4" value="1"> Oscilando</label>
+      <label><input type="radio" name="q4" value="2"> Muito baixa</label>
+    </div>
+
+    <div class="question">
+      <h3>5. Você tem se sentido emocionalmente sobrecarregado?</h3>
+      <label><input type="radio" name="q5" value="0"> Não</label>
+      <label><input type="radio" name="q5" value="1"> Um pouco</label>
+      <label><input type="radio" name="q5" value="2"> Sim</label>
+    </div>
+
+    <button class="quiz-btn" onclick="avaliarQuiz()">Ver Resultado</button>
+
+    <div class="resultado" id="resultadoQuiz"></div>
+  </div>
+</section>
+
+<!-- AJUDA -->
+<section id="ajuda">
+  <h2>Quando Buscar Ajuda</h2>
+
+  <div class="card">
+    <p>
+      Se os sintomas persistirem e estiverem afetando sua rotina,
+      procure apoio profissional especializado.
+    </p>
+  </div>
+
+  <div class="help">
+    <p><strong>Você não está sozinho.</strong></p>
+    <p>Buscar ajuda é um ato de cuidado e coragem.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Saúde Mental • Informação • Apoio • Bem-estar</p>
+</footer>
+
+<script>
+function showSection(id){
+  document.querySelectorAll("section").forEach(sec=>{
+    sec.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+}
+
+function avaliarQuiz(){
+  let total = 0;
+
+  for(let i=1; i<=5; i++){
+    let resposta = document.querySelector('input[name="q'+i+'"]:checked');
+
+    if(!resposta){
+      alert("Responda todas as perguntas antes de continuar.");
+      return;
+    }
+
+    total += Number(resposta.value);
+  }
+
+  let resultado = document.getElementById("resultadoQuiz");
+  let texto = "";
+
+  if(total <= 3){
+    texto = "<h3>Estado Atual: Positivo</h3><p>Você demonstra sinais gerais de equilíbrio emocional. Continue cultivando hábitos saudáveis.</p>";
+  }
+  else if(total <= 6){
+    texto = "<h3>Estado Atual: Atenção Moderada</h3><p>Existem sinais de desgaste emocional. Pode ser importante reforçar descanso, rotina e apoio social.</p>";
+  }
+  else{
+    texto = "<h3>Estado Atual: Atenção Elevada</h3><p>Você pode estar passando por um período difícil. Buscar apoio profissional pode ser uma atitude importante.</p>";
+  }
+
+  resultado.innerHTML = texto;
+  resultado.style.display = "block";
+}
+</script>
+
+</body>
+</html>
